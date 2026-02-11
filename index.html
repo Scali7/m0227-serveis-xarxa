@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>M0227 – Serveis en Xarxa</title>
+
+  <link rel="stylesheet" href="estils_pauolivares.css" />
+</head>
+
+<body>
+  <header class="top">
+    <div class="container">
+      <p class="badge">SMX2 · M0227</p>
+      <h1>Pau Olivares / Mòdul M0227 – Serveis en Xarxa</h1>
+      <p class="subtitle">
+        Web estàtica amb explicació bàsica de: <strong>DNS, DHCP, FTP, SSH i HTTP</strong>.
+      </p>
+
+      <nav class="nav">
+        <a href="#dns">DNS</a>
+        <a href="#dhcp">DHCP</a>
+        <a href="#ftp">FTP</a>
+        <a href="#ssh">SSH</a>
+        <a href="#http">HTTP</a>
+        <a href="#resum">Resum</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="grid">
+      <article id="dns" class="card">
+        <h2>DNS</h2>
+        <p class="lead">
+          El <strong>DNS (Domain Name System)</strong> tradueix noms com <em>www.exemple.com</em>
+          a adreces IP com <em>93.184.216.34</em>.
+        </p>
+        <ul>
+          <li><strong>Per què serveix?</strong> Per no memoritzar IPs i facilitar la navegació.</li>
+          <li><strong>Port:</strong> 53 (UDP normalment; TCP en casos concrets, com transferències de zona).</li>
+          <li><strong>Registres típics:</strong> A/AAAA, CNAME, MX, TXT.</li>
+        </ul>
+        <div class="pillrow">
+          <span class="pill">Resolució de noms</span>
+          <span class="pill">Zona DNS</span>
+          <span class="pill">Registres</span>
+        </div>
+      </article>
+
+      <article id="dhcp" class="card">
+        <h2>DHCP</h2>
+        <p class="lead">
+          El <strong>DHCP</strong> assigna automàticament IP, màscara, gateway i DNS als equips d’una xarxa.
+        </p>
+        <ul>
+          <li><strong>Avantatge:</strong> evita configurar IP manualment a cada dispositiu.</li>
+          <li><strong>Port:</strong> 67 (servidor) / 68 (client) sobre UDP.</li>
+          <li><strong>Procés:</strong> Discover → Offer → Request → Ack (DORA).</li>
+        </ul>
+        <div class="callout">
+          <strong>Exemple:</strong> un portàtil es connecta al Wi-Fi i rep IP en segons.
+        </div>
+      </article>
+
+      <article id="ftp" class="card">
+        <h2>FTP</h2>
+        <p class="lead">
+          El <strong>FTP (File Transfer Protocol)</strong> és un protocol per pujar i baixar fitxers a un servidor.
+        </p>
+        <ul>
+          <li><strong>Ús:</strong> publicar webs, compartir arxius, manteniment de servidors.</li>
+          <li><strong>Port:</strong> 21 (control). Pot usar ports addicionals per dades.</li>
+          <li><strong>Seguretat:</strong> FTP “clàssic” no xifra; alternatives: <strong>SFTP</strong> (via SSH) o FTPS.</li>
+        </ul>
+        <div class="pillrow">
+          <span class="pill">Transferència d’arxius</span>
+          <span class="pill warn">No xifrat (FTP)</span>
+          <span class="pill ok">SFTP recomanat</span>
+        </div>
+      </article>
+
+      <article id="ssh" class="card">
+        <h2>SSH</h2>
+        <p class="lead">
+          El <strong>SSH (Secure Shell)</strong> permet administrar equips remotament amb connexió xifrada.
+        </p>
+        <ul>
+          <li><strong>Ús:</strong> entrar a un servidor Linux, executar comandes, copiar fitxers (scp/sftp).</li>
+          <li><strong>Port:</strong> 22 (TCP).</li>
+          <li><strong>Autenticació:</strong> contrasenya o (millor) <strong>clau pública/privada</strong>.</li>
+        </ul>
+        <div class="callout">
+          <strong>Exemple:</strong> gestionar un servidor sense pantalla (headless) des del teu PC.
+        </div>
+      </article>
+
+      <article id="http" class="card">
+        <h2>HTTP</h2>
+        <p class="lead">
+          <strong>HTTP</strong> és el protocol base del web: el navegador demana recursos (HTML, CSS, imatges) i el servidor respon.
+        </p>
+        <ul>
+          <li><strong>Port:</strong> 80 (HTTP) / 443 (HTTPS, xifrat amb TLS).</li>
+          <li><strong>Mètodes:</strong> GET (llegir), POST (enviar dades), etc.</li>
+          <li><strong>Estàtic vs dinàmic:</strong> aquesta pràctica és una web <strong>estàtica</strong> (fitxers).</li>
+        </ul>
+        <div class="pillrow">
+          <span class="pill">Client/Servidor</span>
+          <span class="pill">GET/POST</span>
+          <span class="pill ok">HTTPS</span>
+        </div>
+      </article>
+
+      <article id="resum" class="card wide">
+        <h2>Resum ràpid</h2>
+        <div class="tablelike">
+          <div class="row head">
+            <div>Servei</div><div>Funció</div><div>Port</div><div>Notes</div>
+          </div>
+          <div class="row">
+            <div>DNS</div><div>Nom ↔ IP</div><div>53</div><div>Registres A/AAAA/CNAME…</div>
+          </div>
+          <div class="row">
+            <div>DHCP</div><div>Assigna IP automàtica</div><div>67/68</div><div>Procés DORA</div>
+          </div>
+          <div class="row">
+            <div>FTP</div><div>Transferència fitxers</div><div>21</div><div>Millor SFTP/FTPS</div>
+          </div>
+          <div class="row">
+            <div>SSH</div><div>Accés remot segur</div><div>22</div><div>Claus SSH recomanades</div>
+          </div>
+          <div class="row">
+            <div>HTTP</div><div>Carrega pàgines web</div><div>80/443</div><div>HTTPS xifrat</div>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container foot">
+      <p>© <span id="year"></span> · Pràctica SMX2 M0227 · Web estàtica HTML + CSS</p>
+      <p class="muted">Fet per: <strong>Pau Olivares</strong></p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
